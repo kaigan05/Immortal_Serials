@@ -1,0 +1,2 @@
+C:\Users\DiemPhuc\Documents\Visual Studio 2013\Projects\ImmortalKatarina\bin\Release\ImmortalSerials.exe.config
+C:\Users\DiemPhuc\Documents\Visual Studio 2013\Projects\ImmortalKatarina\obj\x86\Debug\ImmortalSerials.csprojResolveAssemblyReference.cache
