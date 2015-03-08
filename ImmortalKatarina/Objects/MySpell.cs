@@ -45,36 +45,25 @@ namespace ImmortalSerials.Objects
                 Name = Champion.Player.GetSpell(slot).Name;
             }
         }
-        public bool SmartCast(bool packetCast = false)
-        {
-            LastCastAttemptT = Environment.TickCount;
-            return ObjectManager.Player.Spellbook.CastSpell(Slot, ObjectManager.Player, packetCast);
-        }
-        public bool SmartCast(Vector3 pos, bool packetCast = false)
-        {
-            LastCastAttemptT = Environment.TickCount;
-            return ObjectManager.Player.Spellbook.CastSpell(Slot, pos, packetCast);
-        }
         public bool SmartCast(Obj_AI_Base unit, bool packetCast = false)
         {
             switch (CastType)
             {
                 case CastType.Self:
-                    return SmartCast(packetCast);
+                    return Cast(packetCast);
                 case CastType.Targeted:
-                    LastCastAttemptT = Environment.TickCount;
-                    return ObjectManager.Player.Spellbook.CastSpell(Slot, unit, packetCast);
+                    return CastOnUnit(unit, packetCast);
                 default:
                     var pred = GetPrediction(unit);
                     if (IsInRange(pred.UnitPosition))
                     {
                         if (Collision && (pred.CollisionObjects.Where(a => a.IsValidTarget(Range) && a.IsMinion).ToList().Count) == 0)
                         {
-                            return SmartCast(pred.CastPosition);
+                            return Cast(pred.CastPosition, packetCast);
                         }
                         if (!Collision)
                         {
-                            return SmartCast(pred.CastPosition);
+                            return Cast(pred.CastPosition, packetCast);
                         }
                     }
                     return false;

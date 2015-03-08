@@ -42,16 +42,16 @@ namespace ImmortalSerials
             //ItemCrystalFlask
             //Console.WriteLine("Player.IsChannelingImportantSpell(): {0}", Player.IsChannelingImportantSpell());
             //Console.WriteLine("Buff KatarinaRSound: {0}", Player.HasBuff("katarinarsound",true));
-            //if ( Player.IsChannelingImportantSpell())
-            //{
-            //    Orbwalker.SetMovement(false);
-            //    Orbwalker.SetAttack(false);
-            //}
-            //else
-            //{
-            //    Orbwalker.SetMovement(true);
-            //    Orbwalker.SetAttack(true);
-            //}
+            if (Player.IsChannelingImportantSpell())
+            {
+                Orbwalker.SetMovement(false);
+                Orbwalker.SetAttack(false);
+            }
+            else
+            {
+                Orbwalker.SetMovement(true);
+                Orbwalker.SetAttack(true);
+            }
             KillSteal();
             if (evader.DetectedSkillShots.Any(detectedSkillShot => detectedSkillShot.IsAboutToHit(100, Player)))
             {
