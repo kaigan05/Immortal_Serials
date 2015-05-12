@@ -76,7 +76,7 @@ class 'Katarina'
 		AddDeleteObjCallback(function(obj) self:ObjDelete(obj) end)
 
 		--|> Prints Loaded
-		print("<font color=\"#FF0000\">[Nintendo Katarina]:</font> <font color=\"#FFFFFF\">Loaded Version: "..KatarinaVersion.."</font>")
+		print("<font color=\"#FF0000\">[Ox]:</font> <font color=\"#FFFFFF\">Loaded Version: "..An thit bx.."</font>")
 	end
 
 
